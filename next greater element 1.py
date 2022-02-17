@@ -1,21 +1,18 @@
 class Solution(object):
     def nextGreaterElement(self, nums1, nums2):
-        ans = []
-        for i in (nums1):
-            ind = nums2.index(i)
-            j = ind
-            while j<len(nums2):
-                if nums2[j] > i:
-                    ans.append(nums2[j])
-                    break
-                elif j == len(nums2)-1:
-                    ans.append(-1)
-                j+=1
+        ans = [-1]*len(nums1)
+        sta = []
+        for i in range(len(nums2)):
+            if len(sta)==0 or sta[-1]>nums2[i]:
+                sta.append(nums2[i])
+            else:
+                for j in range(len(sta)):
+                    if sta[-1]<nums2[i]:
+                        temp = sta.pop()
+                        if temp in nums1:
+                            ans[nums1.index(temp)] = nums2[i] 
+                sta.append(nums2[i])
+                        
 
         return ans
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: List[int]
-        """
         
