@@ -7,7 +7,6 @@ class Solution(object):
             if nums[i] == nums[i+1]:
                 nums[i+1]+=1
                 inc+=1
-                print("this")
             elif (nums[i] > nums[i+1]):
                 temp = (nums[i]-nums[i+1]+1)
                 nums[i+1]+= temp
