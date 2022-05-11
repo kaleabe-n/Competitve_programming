@@ -7,7 +7,7 @@ class Solution(object):
     def swapPairs(self, head):
         pre = ListNode()
         pre.next = head
-        current = pre_head
+        current = pre
         
         while current is not None and current.next is not None and current.next.next is not None:
             temp = current.next
