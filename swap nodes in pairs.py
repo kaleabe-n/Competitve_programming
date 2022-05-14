@@ -5,22 +5,24 @@ class ListNode(object):
         self.next = next
 class Solution(object):
     def swapPairs(self, head):
-        pre = ListNode()
-        pre.next = head
-        current = pre
+        initial = ListNode()
+        initial.next = head
+        iterator = initial
         
-        while current is not None and current.next is not None and current.next.next is not None:
-            temp = current.next
-            current.next = temp.next
-            temp.next = current.next.next
-            current.next.next = temp
-            current = temp
-            
-        return pre.next
+        while iterator is not None and iterator.next is not None and iterator.next.next is not None:
+            first = iterator.next
+            second = iterator.next.next
+            first.next = second.next
+            second.next = first
+            iterator.next = second
+            iterator = first
+        
+        return initial.next
             
             
         """
         :type head: ListNode
         :rtype: ListNode
         """
+        
         
