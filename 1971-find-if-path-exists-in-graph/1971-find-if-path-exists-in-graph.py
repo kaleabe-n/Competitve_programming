@@ -12,10 +12,10 @@ class Solution:
                 graph[right].append(left)
             else:
                 graph[right] = [left]
-        que = deque([source])
+        que = [source]
         visited = set([source])
         while que:
-            temp = que.popleft()
+            temp = que.pop()
             if temp == destination:
                 return True
             for i in graph[temp]:
