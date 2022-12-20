@@ -1,0 +1,10 @@
+words = {}
+for i in range(int(input())):
+    temp = input()
+    if temp in words:
+        words[temp] += 1
+    else:
+        words[temp] = 1
+print(len(words.keys()))
+for i in words:
+    print(words[i],end = " ")
