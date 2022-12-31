@@ -13,7 +13,7 @@ class Solution:
         ans = 0
         while stack:
             curr,visited = stack.pop()
-            if grid[curr[0]][curr[1]] == 2 and len(visited) == total-1:
+            if grid[curr[0]][curr[1]] == 2 and len(visited) == total:
                 ans+=1
             elif grid[curr[0]][curr[1]] == 2:
                 pass
@@ -21,7 +21,7 @@ class Solution:
                 for i,j in neighbours(curr,grid):
                     if grid[i][j] != -1 and (i,j) not in visited:
                         newVisited = set([x for x in visited])
-                        newVisited.add(curr)
+                        newVisited.add((i,j))
                         stack.append([(i,j),newVisited])
         
                     
