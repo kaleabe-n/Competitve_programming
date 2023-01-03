@@ -1,8 +1,10 @@
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
-        ans = [None] * len(nums)
-        
-        for i in range(len(nums)):
-            ans[i] = nums[nums[i]]
+        length = len(nums)
+        for i in range(length):
+            ans = nums[nums[i]] % length
+            nums[i] += ans * length
+        for i in range(length):
+            nums[i] //= length
             
-        return ans
+        return nums
