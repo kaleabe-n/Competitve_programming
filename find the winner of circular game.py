@@ -13,4 +13,22 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
+# class Solution:
+#     def findTheWinner(self, n: int, k: int) -> int:
+#         removed = set()
+#         curr = -1
+#         while len(removed) < n-1:
+#             for i in range(k):
+#                 curr += 1
+#                 curr = curr % n
+#                 while curr in removed:
+#                     curr += 1
+#                     curr = curr % n
+#             removed.add(curr)
+#         for i in range(n):
+#             if i not in removed:
+#                 return i + 1
+
+            
+
+            
