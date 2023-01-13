@@ -1,23 +1,22 @@
-class Solution(object):
-    def searchMatrix(self, matrix, target):
-        noOfCol = len(matrix[0])
-        noOfRow = len(matrix)
-        left = 1
-        right = noOfRow * noOfCol
-        while left<right:
-            row = (((left+right)//2-1)//noOfCol)
-            col = (((left+right)//2)%noOfCol)-1
-            if matrix[row][col] < target:
-                left = (left+right)//2+1
-            else:
-                right = (left+right)//2
-        row = (left-1)//noOfCol
-        col = left%noOfCol-1
-        return matrix[row][col] == target
-                
-        """
-        :type matrix: List[List[int]]
-        :type target: int
-        :rtype: bool
-        """
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         
+        #time complexiy o(m+n) space complexity o(1)
+        
+        
+        row = 0
+        #search for the row vertically
+        for i in range(-1,len(matrix)-1):
+            if matrix[i+1][0] > target:
+                row = i
+                break
+        else:
+            row = len(matrix) - 1
+
+        #search for the number within ther row
+        for num in matrix[row]:
+            if num == target:
+                return True
+        
+        return False
+
