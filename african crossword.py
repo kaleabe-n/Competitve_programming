@@ -8,7 +8,7 @@ grid = []
 for _ in range(n):
     grid.append(input())
 
-removed = {}
+removed = {} 
 
 colSets = [set() for _ in range(m)]
 for i in range(n):
