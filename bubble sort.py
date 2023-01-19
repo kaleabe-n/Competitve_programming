@@ -28,9 +28,32 @@ def countSwaps(a):
     print("Last Element:",a[-1])
             
 
+        
+    
+# def countSwaps(a):
+#     swaps = 0
+#     for _ in range(len(a)):
+#         swapped = False
+#         for i in range(len(a)-1):
+#             if a[i] > a[i+1]:
+#                 a[i],a[i+1] = a[i+1],a[i]
+#                 swaps += 1
+#                 swapped = True
+#         if not swapped:
+#             break
+    
+#     print("Array is sorted in", swaps, "swaps.")
+#     print("First Element:",a[0])
+#     print("Last Element:",a[-1])
+    
+    
 if __name__ == '__main__':
     n = int(input().strip())
 
     a = list(map(int, input().rstrip().split()))
 
     countSwaps(a)
+
+            
+
+
