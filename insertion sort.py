@@ -14,18 +14,28 @@ import sys
 #  2. INTEGER_ARRAY arr
 #
 
+# def insertionSort1(n, arr):
+#     # Write your code here
+#     num=arr[n-1]
+#     i=n-2
+#     while(i>=0):
+#         if(arr[i+1]<arr[i]):
+#             num=arr[i+1]
+#             arr[i+1]=arr[i]
+#             print(*arr)
+#             arr[i]=num
+#         else:
+#             break
+#         i-=1
+#     print(*arr)
+
 def insertionSort1(n, arr):
-    # Write your code here
-    num=arr[n-1]
-    i=n-2
-    while(i>=0):
-        if(arr[i+1]<arr[i]):
-            num=arr[i+1]
-            arr[i+1]=arr[i]
-            print(*arr)
-            arr[i]=num
-        else:
-            break
+    i = n - 1
+    while  i > 0 and arr[i] < arr[i-1]:
+        temp = arr[i]
+        arr[i] = arr[i-1]
+        print(*arr)
+        arr[i-1] = temp
         i-=1
     print(*arr)
     
