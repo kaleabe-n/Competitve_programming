@@ -13,14 +13,25 @@ import sys
 # The function accepts INTEGER_ARRAY arr as parameter.
 #
 
+
+#this is previously done
+# def countingSort(arr):
+#     # Write your code here
+#     freq=[0]*100
+#     i=0
+#     while(i<len(arr)):
+#         freq[arr[i]]+=1
+#         i+=1
+#     return freq
+
+
 def countingSort(arr):
-    # Write your code here
-    freq=[0]*100
-    i=0
-    while(i<len(arr)):
-        freq[arr[i]]+=1
-        i+=1
-    return freq
+    counts = [0] * max(100,max(arr)+1)
+    for i in arr:
+        counts[i] += 1
+    return counts[:100]
+
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -35,3 +46,6 @@ if __name__ == '__main__':
     fptr.write('\n')
 
     fptr.close()
+
+  
+
