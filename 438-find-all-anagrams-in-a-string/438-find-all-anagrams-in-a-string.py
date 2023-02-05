@@ -15,7 +15,7 @@ class Solution:
                     window[s[i-lenP]]-=1
                 else:
                     window.pop(s[i-lenP])
-            if window == p and i>=lenP-1:
+            if window == p:
                 ans.append(i-lenP+1)
             i+=1
         return ans
