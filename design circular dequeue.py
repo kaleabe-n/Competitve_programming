@@ -26,10 +26,8 @@ class MyCircularDeque:
             return False
         if self.circularQueue[self.last]==None:
             self.circularQueue[self.last]=value
-            if self.last+1==self.size:
-                self.last=0
-            else:
-                self.last+=1
+            self.last+=1
+            self.last%=self.size
             return True
         else:
             return False
@@ -40,10 +38,8 @@ class MyCircularDeque:
         if self.circularQueue[self.front]!=None:
             self.circularQueue[self.front]=None
             temp=True
-            if self.front+1==self.size:
-                self.front=0
-            else:
-                self.front+=1
+            self.front += 1
+            self.front%=self.size
         return temp
         
 
