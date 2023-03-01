@@ -1,12 +1,10 @@
-from collections import defaultdict,deque
-
-class Solution(object):
-    def removeDuplicateLetters(self, s):
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
         lastIndex = defaultdict(lambda : None)
         for i in range(len(s)-1,-1,-1):
             if lastIndex[s[i]] is None:
                 lastIndex[s[i]] = i
-        stack = deque()
+        stack = []
         stackSet = set()
         for i in range(len(s)):
             if s[i] not in stackSet:
@@ -15,9 +13,3 @@ class Solution(object):
                 stack.append(s[i])
                 stackSet.add(s[i])
         return "".join(stack)
-                
-            
-        """
-        :type s: str
-        :rtype: str
-        """
