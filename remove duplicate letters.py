@@ -8,7 +8,7 @@ class Solution:
         stackSet = set()
         for i in range(len(s)):
             if s[i] not in stackSet:
-                while stack and ord(stack[-1])>=ord(s[i]) and i<lastIndex[stack[-1]] and s[i] not in stackSet:
+                while stack and ord(stack[-1])>=ord(s[i]) and i<lastIndex[stack[-1]]:
                     stackSet.remove(stack.pop())
                 stack.append(s[i])
                 stackSet.add(s[i])
