@@ -1,15 +1,13 @@
-class MyCircularDeque(object):
+class MyCircularDeque:
 
-    def __init__(self, k):
+    def __init__(self, k: int):
         self.circularQueue=[None]*k
         self.front=0
         self.last=0
         self.size=k
-        """
-        :type k: int
-        """
+        
 
-    def insertFront(self, value):
+    def insertFront(self, value: int) -> bool:
         if self.isFull():
             return False
         if self.circularQueue[self.front-1]==None:
@@ -21,12 +19,9 @@ class MyCircularDeque(object):
             return True
         else:
             return False
-        """
-        :type value: int
-        :rtype: bool
-        """
+        
 
-    def insertLast(self, value):
+    def insertLast(self, value: int) -> bool:
         if self.isFull():
             return False
         if self.circularQueue[self.last]==None:
@@ -38,12 +33,9 @@ class MyCircularDeque(object):
             return True
         else:
             return False
-        """
-        :type value: int
-        :rtype: bool
-        """
+        
 
-    def deleteFront(self):
+    def deleteFront(self) -> bool:
         temp=False
         if self.circularQueue[self.front]!=None:
             self.circularQueue[self.front]=None
@@ -53,11 +45,9 @@ class MyCircularDeque(object):
             else:
                 self.front+=1
         return temp
-        """
-        :rtype: bool
-        """
+        
 
-    def deleteLast(self):
+    def deleteLast(self) -> bool:
         temp=False
         if self.circularQueue[self.last-1]!=None:
             self.circularQueue[self.last-1]=None
@@ -67,43 +57,32 @@ class MyCircularDeque(object):
             else:
                 self.last-=1
         return temp
-        """
-        :rtype: bool
-        """
+        
 
-    def getFront(self):
+    def getFront(self) -> int:
         if self.circularQueue[self.front]==None:
             return -1
         else:
             return self.circularQueue[self.front]
-        """
-        :rtype: int
-        """
+        
 
-    def getRear(self):
+    def getRear(self) -> int:
         if self.circularQueue[self.last-1]==None:
             return -1
         else:
             return self.circularQueue[self.last-1]
-        """
-        :rtype: int
-        """
+        
 
-    def isEmpty(self):
+    def isEmpty(self) -> bool:
         if self.circularQueue[self.front]==None:
             return True
         return False
-        """
-        :rtype: bool
-        """
+        
 
-    def isFull(self):
+    def isFull(self) -> bool:
         if self.circularQueue[self.front]!=None and self.front==self.last:
             return True
         return False
-        """
-        :rtype: bool
-        """
         
 
 
