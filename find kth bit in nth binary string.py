@@ -1,10 +1,10 @@
-class Solution(object):
-    def findKthBit(self, n, k):
-        def recur(n):
+class Solution:
+    def findKthBit(self, n: int, k: int) -> str:
+        def helper(n):
             if n==1:
                 return "0"
             else:
-                temp = recur(n-1)
+                temp = helper(n-1)
                 temp2 = ""
                 for i in temp:
                     if i=="0":
@@ -12,11 +12,6 @@ class Solution(object):
                     else:
                         temp2+="0"
                 return temp + "1" + temp2[::-1]
-        ans = recur(n)
+        ans = helper(n)
         return ans[k-1]
-        """
-        :type n: int
-        :type k: int
-        :rtype: str
-        """
         
