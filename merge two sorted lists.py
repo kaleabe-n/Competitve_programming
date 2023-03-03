@@ -1,49 +1,26 @@
 # Definition for singly-linked list.
-# class ListNode(object):
+# class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution(object):
-    def mergeTwoLists(self, list1, list2):
-        ans = None
-        head = None
-        if list1 == None:
-            return list2
-        elif list2 == None:
-            return list1
-        i = list1
-        j = list2
-        if i.val<j.val:
-            head = i
-            ans = i
-            head = i
-            i = i.next
-        else:
-            head = j
-            ans = j
-            j = j.next
-        while i is not None or j is not None:
-            if i is None:
-                ans.next = j
-                ans =ans.next
-                break
-            elif j is None:
-                ans.next = i
-                ans = ans.next
-                break
-            elif i.val>=j.val:
-                ans.next = j
-                ans = ans.next
-                j = j.next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        def helper(merged,l1,l2):
+            if l1 is None and l2 is None:
+                return 
+            elif l1 is None:
+                merged.next = ListNode(l2.val)
+                l2 = l2.next
+                helper(merged.next,l1,l2)
+            elif l2 is None or l1.val <= l2.val:
+                merged.next = ListNode(l1.val)
+                l1 = l1.next
+                helper(merged.next,l1,l2)
             else:
-                ans.next = i
-                ans = ans.next
-                i = i.next
-        return head
-                    
-        """
-        :type list1: Optional[ListNode]
-        :type list2: Optional[ListNode]
-        :rtype: Optional[ListNode]
-        """
-        
+                merged.next = ListNode(l2.val)
+                l2 = l2.next
+                helper(merged.next,l1,l2)
+        dummy = ListNode()
+        temp = dummy
+        helper(temp,list1,list2)
+        return dummy.next
