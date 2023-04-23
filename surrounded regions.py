@@ -1,5 +1,5 @@
-class Solution(object):
-    def solve(self, board):
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
         ignored = set()
         for i in range(len(board[0])):
             dfs([0,i],ignored,board)
