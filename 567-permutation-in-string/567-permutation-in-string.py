@@ -1,19 +1,19 @@
-class Solution:
-    def checkInclusion(self, s1: str, s2: str) -> bool:
-        window = [0]*26
-        str2Counts = [0]*26
-        a = ord('a')
-        for letter in s1:
-            str2Counts[ord(letter)-a]+=1
-        left = 0
-        for right,letter in enumerate(s2):
-            window[ord(letter)-a]+=1
-            if right>=len(s1)-1:
-                if window == str2Counts:
-                    return True
-                window[ord(s2[left])-a]-=1
-                left+=1
-        return False
+# class Solution:
+#     def checkInclusion(self, s1: str, s2: str) -> bool:
+#         window = [0]*26
+#         str2Counts = [0]*26
+#         a = ord('a')
+#         for letter in s1:
+#             str2Counts[ord(letter)-a]+=1
+#         left = 0
+#         for right,letter in enumerate(s2):
+#             window[ord(letter)-a]+=1
+#             if right>=len(s1)-1:
+#                 if window == str2Counts:
+#                     return True
+#                 window[ord(s2[left])-a]-=1
+#                 left+=1
+#         return False
 
 # class Solution:
 #     def checkInclusion(self, s1: str, s2: str) -> bool:
@@ -33,4 +33,24 @@ class Solution:
 #             else:
 #                 return True
 #         return False
-        
+
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        counts = [0]*26
+        for letter in s1:
+            counts[ord(letter)-ord('a')]+=1
+        window = [0]*26
+        l = 0
+        for r in range(len(s2)):
+            window[ord(s2[r])-ord('a')] += 1
+            if r-l+1>len(s1):
+                window[ord(s2[l])-ord('a')] -= 1
+                l+=1
+            for i in range(26):
+                if window[i]!=counts[i]:
+                    break
+            else:
+                return True
+            
+        return False
